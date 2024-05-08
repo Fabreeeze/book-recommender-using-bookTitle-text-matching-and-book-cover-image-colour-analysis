@@ -1,12 +1,21 @@
 body {
     padding-top: 80px; /* Adjust the value as needed to match the height of the fixed element */
 }
-/* styles.css */
-
-/* Ensure search bar stays fixed at the top */
 
 
-/* Style for the scrollable container */
 #search-results {
     padding-top: 80px; /* Adjust to match the height of the search bar */
+}
+
+.book-heading {
+    margin-top: 20px; /* Adjust the top margin as needed */
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
+}
+
+.separator {
+    border-top: 3px solid #ccc; /* Adjust the border color as needed */
+    margin-top: 20px; /* Adjust the top margin as needed */
+    size: 8px;
 }

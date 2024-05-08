@@ -143,8 +143,8 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
         # Filter dataset by maximum cost and minimum ratings
         max_cost=int(max_cost)
         min_ratings=int(min_ratings)
-        genre_dataset['price'] = pd.to_numeric(genre_dataset['price'], errors='coerce')
-        genre_dataset['stars'] = pd.to_numeric(genre_dataset['stars'], errors='coerce')
+        # genre_dataset['price'] = pd.to_numeric(genre_dataset['price'], errors='coerce')
+        # genre_dataset['stars'] = pd.to_numeric(genre_dataset['stars'], errors='coerce')
 
         genre_dataset = genre_dataset[(genre_dataset['price'] <= max_cost) & (genre_dataset['stars'] >= min_ratings)]
 
@@ -172,7 +172,8 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
 
             return filtered_recommendations_within_genre, filtered_recommendations_across_genres
         else:
-            return filtered_recommendations_within_genre, []
+            tempDf = pd.DataFrame()
+            return filtered_recommendations_within_genre, tempDf
 
     
     best_genre_recommendations, other_genre_recommendations = get_book_recommendations(genre, keywords, dataset, upperCost, lowerRating)
@@ -183,6 +184,7 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
     # print("\nOther genre recommendations:")
     # print(other_genre_recommendations.head(3))
 
-    print(dataset['productURL'])
+    # print(dataset['productURL'])
+    
 
     return [best_genre_recommendations, other_genre_recommendations]

@@ -12,46 +12,41 @@
     <div class="container flex flex-col justify-between items-center mx-auto max-w-xl p-8">
         <h1 class="text-3xl font-semibold text-gray-800 mb-6">Book Library Search</h1>
         <div class="flex justify-between  items-center mx-auto max-w-md"> <!-- Center the search box -->
-            <form id="search-form" class="space-y-4 p-4">
+            <form id="search-form" name="search-form" class="space-y-4 p-4">
                 <div>
                     <label for="genre" class="block text-gray-700 font-semibold">Select Genre:</label>
                     <select id="genre" name="genre" class="form-select mt-1 block w-full">
-                        <option value="0">Select Genre</option>
+                        <option value="Parenting & Relationships">Parenting & Relationships</option>
+                        <option value="Engineering & Transportation">Engineering & Transportation</option>
+                        <option value="Science & Math">Science & Math</option>
+                        <option value="Mystery, Thriller & Suspense">Mystery, Thriller & Suspense</option>
+                        <option value="Crafts, Hobbies & Home">Crafts, Hobbies & Home</option>
+                        <option value="Literature & Fiction">Literature & Fiction</option>
+                        <option value="Biographies & Memoirs">Biographies & Memoirs</option>
+                        <option value="Computers & Technology">Computers & Technology</option>
+                        <option value="Politics & Social Sciences">Politics & Social Sciences</option>
+                        <option value="Teen & Young Adult">Teen & Young Adult</option>
+                        <option value="Foreign Language">Foreign Language</option>
+                        <option value="Science Fiction & Fantasy">Science Fiction & Fantasy</option>
                         <option value="Travel">Travel</option>
-                        <option value="Parenting & Relationships
-                        ">Parenting & Relationships
-                    </option>
-                        <option value="Engineering & Transportation
-                        ">Engineering & Transportation
-                        </option>
-                        <option value="Science & Math
-                        ">Science & Math
-                        </option>
-                        <option value="Mystery, Thriller & Suspense
-                        ">Mystery, Thriller & Suspense
-                        </option>
-                        <option value="Crafts, Hobbies & Home
-                        ">Crafts, Hobbies & Home
-                        </option>
-                        <option value="Literature & Fiction
-                        ">Literature & Fiction
-                        </option>
-                        <option value="Biographies & Memoirs
-                        ">Biographies & Memoirs
-                        </option>
-                        <option value="Computers & Technology
-                        ">Computers & Technology
-                        </option>
-                        <option value="Politics & Social Sciences
-                        ">Politics & Social Sciences
-
-                        </option>
-                        <option value="Teen & Young Adult
-                        ">Teen & Young Adult
-                        </option>
-                        <option value="Foreign Language
-                        ">Foreign Language
-                        </option>
+                        <option value="LGBTQ+ eBooks">LGBTQ+ eBooks</option>
+                        <option value="Religion & Spirituality">Religion & Spirituality</option>
+                        <option value="Arts & Photo graphy">Arts & Photo graphy</option>
+                        <option value="Comics">Comics</option>
+                        <option value="Education & Teaching">Education & Teaching</option>
+                        <option value="History">History</option>
+                        <option value="Cookbooks, Food & Wine">Cookbooks, Food & Wine</option>
+                        <option value="Nonfiction">Nonfiction</option>
+                        <option value="Self-Help">Self-Help</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Humor & Entertainment">Humor & Entertainment</option>
+                        <option value="Reference">Reference</option>
+                        <option value="Health, Fitness & Dieting">Health, Fitness & Dieting</option>
+                        <option value="Sports & Outdoors">Sports & Outdoors</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Business & Money">Business & Money</option>
+                        <option value="Law">Law</option>
+                        <option value="Children's eBooks">Children's eBooks</option>
 
 
                     </select>
@@ -74,7 +69,7 @@
     </div>
 
     <!-- Scrollable container for search results -->
-    <div class=" container   w-full p-8 mt-4">
+    <div class="container w-full p-8 mt-4">
         <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
     </div>
 
