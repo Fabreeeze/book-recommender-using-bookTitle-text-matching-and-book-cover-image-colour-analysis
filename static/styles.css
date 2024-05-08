@@ -1,0 +1,12 @@
+body {
+    padding-top: 80px; /* Adjust the value as needed to match the height of the fixed element */
+}
+/* styles.css */
+
+/* Ensure search bar stays fixed at the top */
+
+
+/* Style for the scrollable container */
+#search-results {
+    padding-top: 80px; /* Adjust to match the height of the search bar */
+}

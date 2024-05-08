@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body class="bg-gray-100 p-10">
+
+    <div class="container flex flex-col justify-between items-center mx-auto max-w-xl p-8">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Book Library Search</h1>
+        <div class="flex justify-between  items-center mx-auto max-w-md"> <!-- Center the search box -->
+            <form id="search-form" class="space-y-4 p-4">
+                <div>
+                    <label for="genre" class="block text-gray-700 font-semibold">Select Genre:</label>
+                    <select id="genre" name="genre" class="form-select mt-1 block w-full">
+                        <option value="0">Select Genre</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Parenting & Relationships
+                        ">Parenting & Relationships
+                    </option>
+                        <option value="Engineering & Transportation
+                        ">Engineering & Transportation
+                        </option>
+                        <option value="Science & Math
+                        ">Science & Math
+                        </option>
+                        <option value="Mystery, Thriller & Suspense
+                        ">Mystery, Thriller & Suspense
+                        </option>
+                        <option value="Crafts, Hobbies & Home
+                        ">Crafts, Hobbies & Home
+                        </option>
+                        <option value="Literature & Fiction
+                        ">Literature & Fiction
+                        </option>
+                        <option value="Biographies & Memoirs
+                        ">Biographies & Memoirs
+                        </option>
+                        <option value="Computers & Technology
+                        ">Computers & Technology
+                        </option>
+                        <option value="Politics & Social Sciences
+                        ">Politics & Social Sciences
+
+                        </option>
+                        <option value="Teen & Young Adult
+                        ">Teen & Young Adult
+                        </option>
+                        <option value="Foreign Language
+                        ">Foreign Language
+                        </option>
+
+
+                    </select>
+                </div>
+                <div>
+                    <label for="keywords" class="block text-gray-700 font-semibold">Enter Keywords:</label>
+                    <input type="text" id="keywords" name="keywords" class="form-input mt-1 block w-full" placeholder="Keywords">
+                </div>
+                <div>
+                    <label for="cost" class="block text-gray-700 font-semibold">Cost Cap:</label>
+                    <input type="number" id="cost" name="cost" class="form-input mt-1 block w-full" placeholder="Cost">
+                </div>
+                <div>
+                    <label for="stars" class="block text-gray-700 font-semibold">Stars Cap:</label>
+                    <input type="number" id="stars" name="stars" class="form-input mt-1 block w-full" placeholder="Stars">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scrollable container for search results -->
+    <div class=" container   w-full p-8 mt-4">
+        <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+    </div>
+
+    <!-- JavaScript to handle form submission and display results -->
+    <script src="../static/scripts.js"></script>
+</body>
+</html>
