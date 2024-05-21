@@ -37,7 +37,7 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
         'Maroon': (128, 0, 0),
     }
 
-    path = 'final_updated_with_nearestMatchedColors_subset_dataset.xlsx'
+    path = 'final_updated_with_nearestMatchedColors_subset_dataset_new.xlsx'
 
 
 
@@ -130,8 +130,15 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
 
 
 
+    def sort_by_dominant_color(recommendations, genre, dominant_colors):
+        dominant_color_order = dominant_colors[genre].tolist()
+        recommendations.loc[:, 'color_rank'] = recommendations['MatchedColor'].apply(lambda x: dominant_color_order.index(x) if x in dominant_color_order else float('inf'))
+        sorted_recommendations = recommendations.sort_values(by='color_rank')
+        return sorted_recommendations.drop(columns=['color_rank'])
 
-    def get_book_recommendations(genre, keywords, dataset, max_cost, min_ratings, similarity_threshold=0.3):
+
+
+    def get_book_recommendations(genre, keywords, dataset, max_cost, min_ratings, dominant_colors, similarity_threshold=0.3):
         # Preprocess input keywords
         keywords = str(keywords)
         preprocessed_keywords = preprocess_keywords(keywords)
@@ -159,6 +166,10 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
         # Filter recommendations based on similarity threshold
         filtered_recommendations_within_genre = filter_recommendations(ranked_recommendations_within_genre, similarity_threshold)
 
+        # Sort by dominant color ranking
+        filtered_recommendations_within_genre = sort_by_dominant_color(filtered_recommendations_within_genre, genre, dominant_colors)
+
+
         # If not enough recommendations within genre, expand search to other genres
         if len(filtered_recommendations_within_genre) < 5:
             # Calculate similarity scores for books across genres
@@ -170,21 +181,21 @@ def recommend_book(upperCost, lowerRating,genre, keywords):
             # Filter recommendations based on similarity threshold
             filtered_recommendations_across_genres = filter_recommendations(ranked_recommendations_across_genres, similarity_threshold)
 
+            filtered_recommendations_across_genres = sort_by_dominant_color(filtered_recommendations_across_genres, genre, dominant_colors)
+
+
             return filtered_recommendations_within_genre, filtered_recommendations_across_genres
         else:
             tempDf = pd.DataFrame()
             return filtered_recommendations_within_genre, tempDf
 
+    top_10_dominant_colors_by_category = pd.read_excel('top_10_colors_by_category.xlsx')
+    top_10_dominant_colors_by_category.fillna("NONE")
     
-    best_genre_recommendations, other_genre_recommendations = get_book_recommendations(genre, keywords, dataset, upperCost, lowerRating)
+    # print(top_10_dominant_colors_by_category)
+    best_genre_recommendations, other_genre_recommendations = get_book_recommendations(genre, keywords, dataset, upperCost, lowerRating,top_10_dominant_colors_by_category)
 
-    # print("Best recommendations within the specified genre:")
-    # print(best_genre_recommendations.head(3))
-
-    # print("\nOther genre recommendations:")
-    # print(other_genre_recommendations.head(3))
-
-    # print(dataset['productURL'])
+    
     
 
     return [best_genre_recommendations, other_genre_recommendations]
